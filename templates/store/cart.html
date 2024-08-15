@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Cart
+{% endblock title %}
+
+{% block content %}
+<br>
+<br>
+<div class=" c-m-a">
+  <div class="c-s-b">
+    <table class=" c-s-t">
+      <tr class=" c-s-tr">
+        <td class="c-s-td df-aj ">ITEMS : <strong>{{cartitems}}</strong></td>
+        <td class="c-s-td df-aj ">TOTAL : ₹ {{carttotal|floatformat:2}}</td>
+        {% if user.is_authenticated %}
+        <td class="c-s-td df-aj "><a class="c-s-chk" href="{% url 'checkout'%}">CHECKOUT </a></td>
+        {% else %}
+        <td class="c-s-td df-aj "><a class="c-s-chk" href="{% url 'handlelogin'%}">CHECKOUT </a></td>
+        {% endif%}
+      </tr>
+    </table> 
+  </div>
+  <div class=" c-d-b df-aj">
+    <table class=" c-d-t">
+      <tr class="c-d-tr1 df-aj">
+        <td class="c-d-td df-aj ">ITEM IMAGE</td>
+        <td class="c-d-td df-aj">ITEM NAME</td>
+        <td class="c-d-td df-aj">PRICE</td>
+        <td class="c-d-td df-aj">QUANTITY</td>
+        <td class="c-d-td df-aj">TOTAL</td>
+      </tr>
+      {% for item in items %}
+      <tr class="c-d-tr df-aj">
+        <td class="c-d-td df-aj "><img style="height:70px; width: 100px;" class=" img-fluid" src="{{item.product.image1.url}}" alt="Product Image"></td>
+        <td class=" c-d-td df-aj "><p>{{item.product.name|slice:"0:20"}}...</p></td>
+        <td class=" c-d-td df-aj "><strong>₹ {{item.product.price|floatformat:2}}</strong></td>
+        <td class=" c-d-td df-aj ">
+          <b class=" mb-0 cart-quantity-text"><strong>{{item.quantity}}</strong></b>
+          <div>
+            <button id="update-cart" data-product="{{ item.product.product_id }}" data-action="add">
+              <i class="fa-solid fa-caret-up fa-bounce"></i>
+            </button>
+            <button id="update-cart" data-product="{{ item.product.product_id }}" data-action="remove">
+              <i class="fa-solid fa-caret-down fa-bounce"></i>
+            </button>
+          </div>
+        </td>
+        <td class=" c-d-td df-aj  "><strong>₹{{item.get_total|floatformat:2}}</strong></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <br>
+  <br>
+</div>
+{% endblock content %}

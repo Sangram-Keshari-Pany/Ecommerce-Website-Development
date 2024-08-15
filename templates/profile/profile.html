@@ -1,0 +1,48 @@
+{% extends "profile/myprofile.html" %}
+{% block title2 %}
+  my profile
+{% endblock title2 %} 
+{% block profile %}
+<div class="user-profile">
+  <div class="user-info-box">
+    <h4>User Name :-{{customer.user.username}}</h4>
+    <h4>First Name :-{{customer.firstname}}</h4>
+    <h4>Last Name :-{{customer.lastname}}</h4>
+    <h4>DOB :-{{customer.dob}}</h4>
+    <h4>Phone No :-{{customer.mobileno}}</h4>
+    <h4>Gender :-{{customer.gender}}</h4>
+    <button class="edit-button">EDIT  <i class="fa-solid fa-user-pen fa-bounce"></i></button>
+  </div>
+  <div class="user-edit-box">
+    <form class="user-info-form" action="{% url 'myprofile' %}" style="display: none;" method="POST">
+      {% csrf_token %}
+      <div>
+        <label for="name">First Name</label>
+        <input id="name" name="name" type="text">
+      </div>
+      <div>
+        <label for="lastname">Last Name</label>
+        <input id="lastname" name="lastname" type="text">
+      </div>
+      <div>
+        <label for="dob">DOB</label>
+        <input id="dob" name="dob" type="date">
+      </div>
+      <div>
+        <label for="phoneno">Phone no</label>
+        <input id="phone" name="phone" type="text">
+      </div>
+      <div>
+        <label for="gender">Gender</label>
+        <input id="gender" name="gender" type="text">
+      </div>
+      <div>
+        <label for="photo">Profile Photo</label>
+        <input id="photo" name="photo" type="file" accept="image/*">
+      </div>
+      <button>Submit</button>
+    </form>
+
+  </div>
+</div>
+{% endblock profile %}

@@ -1,0 +1,236 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../font/Zackerman-51Z6Z.otf') format('truetype');
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+    font-family: 'MyCustomFont', sans-serif;
+    letter-spacing: 3px;
+}
+body{
+    letter-spacing: 2px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+.wh-b{
+    background-color: white;
+    color: black;
+}
+.drk-b{
+    background-color: black;
+    color: white;
+}
+.blu-b{
+    background-color: black;
+    color: white;
+}
+.wh-t{
+    color: white;
+}
+.drk-t{
+    color: black;
+}
+.blu-t{
+    color: green;
+}
+.df-aj{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.df-caj{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.b-wh{
+    border: 2px solid white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.b-drk{
+    border: 2px solid white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}.b-blu{
+    border: 2px solid white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.b-a{
+    position: fixed;
+    height:80px;
+    width: 100%;
+    z-index: 1000;
+}
+.b-n{
+    height: 100%;
+    width: 100%;
+    background-color:gold;
+}
+.b-s{
+    width: 100%;
+    z-index: 500;
+}
+/* body complete */
+.b-n-l{
+    height: 100%;
+    width: 20%;
+    justify-content: space-around;
+}
+.b-n-l>button{
+    border: none;
+}
+.b-n-l>button>i{
+    font-size: 30px;
+}
+.b-n-l>a>img{
+    height: 60px;
+    width: 180px;
+}
+.b-n-s-b{
+    height: 100%;
+    width: 30%;
+}
+.b-n-s-b>input{
+    width: 90%;
+    height: 50%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    font-size: 15px;
+}
+.b-n-s-b>button{
+    width: 3%;
+    height: 50%;
+    border: none;
+    position: absolute;
+    left:45% ;
+    background-color:inherit;
+    font-family: 'MyCustomFont', sans-serif;
+}
+.b-n-s-b>button>i{
+    font-size: 18px;
+}
+.b-n-n{
+    height: 100%;
+    width: 50%;
+}
+.b-n-n>ul{
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+.b-n-n>ul>li{
+    text-decoration: none;
+}
+.b-n-n>ul>li>a{
+    text-decoration: none; 
+    color: inherit; 
+    font-size: 14px;
+    font-weight: 900;
+}
+.b-n-n>ul>li>a:hover{
+    color:rgb(0, 124, 4);
+}
+.b-n-n>ul>li>a>i{
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.base-dropdown {
+    position: relative; 
+}
+
+.base-dropdown-content {
+    display: none; 
+    position: absolute; 
+    top: 100%;
+    left: 0; 
+    background-color: white; 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); 
+    z-index: 1;
+}
+
+.base-dropdown-content a {
+    display: block; 
+    padding: 10px; 
+    color: black; 
+    text-align: center; 
+    text-decoration: none; 
+}
+
+.base-dropdown-content a:hover {
+    background-color: #ddd; 
+}
+
+.base-dropdown:hover .base-dropdown-content {
+    display: block; 
+}
+.component-render{
+    width: 90%;
+    margin: 10px;
+    border-bottom: 1px solid rgb(201, 200, 200);
+}
+.b-f{
+    width: 90%;
+}
+.b-f-c{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.b-f-s{
+    height: 100%;
+    width: 22%;
+    padding-top: 25px;
+}
+.b-f-s>ul{
+   list-style-type: none;
+}
+.b-f-s>ul>li>a{
+    text-decoration: none ;
+}
+.b-f-s>ul>li>a:hover{
+    color: rgb(255, 0, 0);
+}
+.b-f-s>form>input{
+    margin-top: 20px;
+    border: none;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 2px; 
+}
+.b-f-s>form>button{
+    margin-top: 20px;
+    background-color: red;
+    border: none;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 2px;
+    border-radius: 5px; 
+}
+.b-f-b{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+}
+.sangram:hover{
+    color: rgb(255, 0, 0);
+}
+.b-s-l{
+    justify-content: space-evenly;
+}
+.b-s-l>a>i{
+    margin-top: 10px;
+    font-size:24px;
+}
+.b-s-l>a>i:hover{
+    color: black;
+}

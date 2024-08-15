@@ -1,0 +1,117 @@
+.search-box{
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 50px;
+    scrollbar-width: none;
+    display: flex;
+    justify-content: center;
+} 
+.filter-product{
+    height: 100%;
+    width: 20%;
+    margin-top: 5px;
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+.filter-product>select{
+    height: 30px;
+    width: 230px;
+    font-size: large;
+    border: none;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 20px;
+    margin-bottom: 35px;   
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.filter-product>select>option{
+    border-radius: 40px;
+    font-size:17.5px;
+    font-weight: bolder;
+}
+.filter-product>input{
+    height: 30px;
+    text-align: center;
+    margin-bottom: 35px;  
+    border-radius: 20px;
+    border: none;
+    margin-right: 5px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.filter-product>button{
+    height: 30px;
+    width: 230px;
+    border: none;
+    border-radius: 20px;
+    background-color:gold;
+    font-size: large;
+    font-weight: bolder;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+.search-product{
+    height: 100%;
+    width: 80%;
+}
+.search-row{
+    height:200px;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    margin: 5px;
+}
+.search-image{
+    height:100%;
+    width: 30%;
+    overflow: hidden;
+    background-color: transparent;
+    border: none;
+}
+.search-name{
+    height:100%;
+    width: 65%;
+    padding:5px;
+}
+.s-name-title{
+    height: 25%;
+    width: 100%;
+    margin-bottom: 5px;
+    color:rgb(2, 2, 204);
+    font-size: larger;
+    font-weight:900;    
+}
+.search-name>.rating{
+    width: 50px;
+    text-align: center;
+    font-size: small;
+    font-weight: bolder;
+    background-color:green;
+    color: rgb(255, 255, 255);
+}
+.search-name>.review{
+    color: rgb(174, 174, 174);
+    font-size: 12px;
+}
+.s-name-desc{
+    height:70%;
+    width: 100%;
+    font-size:13px;
+    color: rgb(120, 120, 120);
+}
+.search-price{
+    height:100%;
+    width: 15%;
+}
+.search-price>div{
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+}
+
+.search-price>strike{
+    font-size: 16px;
+    color: rgb(247, 1, 1);
+}
+.search-price>p{
+    font-size: 10px;
+    color: green;
+}

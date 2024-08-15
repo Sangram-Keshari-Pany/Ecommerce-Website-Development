@@ -1,0 +1,65 @@
+.con-b{
+    width: 100%;
+    border: #0800ff;
+}
+.con-c {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid white;
+}
+.con-ti {
+    font-size:30px;
+    text-align: center;
+}
+.alert-box {
+    margin-bottom: 1rem;
+}
+.alert-box .btn-close {
+    border: none;
+    background: transparent;
+}
+.con-fo {
+    width: 100%;
+}
+.con-fo  .con-fo-gu {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+.form-label {
+    display: block;
+    font-weight: bolder;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    border: none;
+}
+.con-su-bu {
+    background-color: #0800ff;
+    color: white;
+    border: none;
+    padding: 1px;
+    border-radius: 20px;
+    font-size:24px;
+    cursor: pointer;
+    width: 40%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-family: 'MyCustomFont', sans-serif;
+    letter-spacing: 2px;
+}
+
+.con-su-bu:hover {
+    background-color: #000000;
+    color: rgb(17, 0, 255);
+}
+.login-form {
+    padding: 1rem;
+} 

@@ -1,0 +1,134 @@
+
+ .ch-c{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+} 
+
+/* Shadow Box and Flex Card Styles */
+.ch-s{
+    width: 60%;
+    padding: 20px;
+    border-radius:20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.checkout-summary-table1{
+    height: 65vh;
+    width: 100%;
+    overflow: auto;
+}
+.checkout-summary-table2{
+    width: 100%;
+}
+.ch-s-t-tr{
+    width: 100%;
+    justify-content: space-evenly; 
+    border-bottom: 1px solid rgb(6, 6, 6);
+
+}
+.ch-s-t-tr>td{
+    padding: 10px;
+    font-size: medium;
+    width: 20%;
+    justify-content: space-evenly; 
+
+}
+.ch-to{
+    background-color:gold;
+}
+.ch-b-t-c{
+    background-color: black;
+    color: white;
+}
+
+/*  */
+
+.ch-a-s{
+    width: 40%;
+    padding: 20px;
+    border-radius:20px;  
+}
+.ch-info{
+    width: 100%;
+}
+.ch-info>h5{
+    font-size:24px;
+    color: blue;
+
+}
+.ch-form{
+    width: 100%;
+    height: 100px;
+}
+.ch-form>div{
+    width: 50%;
+    color:  rgb(0, 0, 0);
+}
+.ch-form>div>input{
+    width: 90%;
+    height: 30px;
+    padding: 10px;
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border: none;
+}
+.submit-button{
+    position: relative; /* Ensure that the pseudo-element is positioned relative to the button */
+    height: 40px;
+    width: 200px;
+    font-family: 'MyCustomFont', sans-serif;
+    font-weight: 900;
+    font-size: larger;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color:green;
+    color: rgb(255, 255, 255);
+    box-shadow: 4px 4px 8px rgb(148, 148, 148);
+   
+}
+.payment-button{
+    position: relative; /* Ensure that the pseudo-element is positioned relative to the button */
+    height: 40px;
+    width: 200px;
+    font-family: 'MyCustomFont', sans-serif;
+    font-weight: 900;
+    font-size: larger;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color:gold;
+    color:black;
+    box-shadow: 4px 4px 8px rgb(148, 148, 148);
+  
+    position: absolute;
+    top: 620px;
+    left: 1062px;
+}
+.ch-b-t-c{
+    height: 40px;
+    width: 200px;
+    font-family: 'MyCustomFont', sans-serif;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+.ch-to{
+    border: 2px solid rgb(147, 147, 147);
+}
+.ch-li{
+    border: 2px double rgb(255, 255, 255);
+}
+
+

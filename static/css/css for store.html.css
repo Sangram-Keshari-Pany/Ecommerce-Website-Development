@@ -1,0 +1,108 @@
+.s-p{
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 80px;
+}
+.s-s-l {
+    width: 100%;
+    justify-content: baseline;
+}
+.s-c-box{
+    height:90px;
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+   justify-content: space-around;
+}
+.s-c-box>form{
+    height: 100%;
+    width: 8%;
+    display: flex;
+    border: none;
+    justify-content: space-around;
+
+
+
+}
+.s-c-box>form>button{
+    height:75%;
+    width: 70%;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: transparent;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2);
+ 
+
+}
+.s-c-box>form>button:hover{
+    border: 3px solid green; 
+}
+.s-c-box>form>p{
+    font-size: 10px;
+    font-weight: 900;
+}
+.h2logo{
+    height:60px;
+    width: 200px;
+    text-align: center;
+    opacity: 60%;
+}
+.s-s-l>h2,h3{
+    font-size: 40px;
+}
+
+.s-p-l{
+    width: 100%;
+    margin-top: 20px;
+}
+.s-p-l>h3{
+    width: 100%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+    color:blue;
+}
+.s-p-l>.row{
+    width: 100%;
+    justify-content: space-evenly;  
+    overflow: auto;
+    scrollbar-width: none;
+}
+.s-p-c{
+    height:100%;
+    width:270px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+    margin: 2.5px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.s-c-i {
+    height:50%;
+    width: 100%; 
+    border: none;
+}
+.s-c-b{
+    height:50%;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    border: none;
+}
+.s-c-b>h5,h6{
+    font-size: medium;
+}
+
+

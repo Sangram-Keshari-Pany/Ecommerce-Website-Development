@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+  {% block title2 %}{% endblock title2%}
+{% endblock title %}
+{% block content %}
+  <div class=" profile-box">
+    <div class=" profile-box-continer">
+      <div class=" user-info">
+        <div class=" user-info-photo">
+          {% if user.is_authenticated and customer.image %}
+          <img style="height:146px; width=:146px;" src="{{customer.image.url}}"></img>
+          {% endif %}
+        </div>
+        <a href="{% url 'order' %}" class=" user-info-link"><div class="user-info-button">Orders</div></a>
+        <a href="{% url 'wishlist-page'%}" class=" user-info-link"><div class="user-info-button">Wishlist</div></a>
+        <a href="#" class=" user-info-link"><div class="user-info-button">Gift Cards</div></a>
+        <a href="{% url 'contact' %}" class=" user-info-link"><div class="user-info-button">Contact Us</div></a>
+        <a href="#" class=" user-info-link"><div class="user-info-button">Sp@ny</div></a>
+        <a href="#" class=" user-info-link"><div class="user-info-button">Coins</div></a>
+        <a href="#" class=" user-info-link"><div class="user-info-button">Coupons</div></a>
+        <a href="#" class=" user-info-link"><div class="user-info-button">Saved Card</div></a>
+        <a href="#" class=" user-info-link"><div class="user-info-button">Saved VPA</div></a>
+        <a href="{% url 'address' %}" class=" user-info-link"><div class=" user-info-button">Address</div></a>
+      </div>
+      <div class=" user-details">
+        {% block profile %}
+        {% endblock profile %}
+      </div>
+
+    </div>
+  </div>
+{% endblock content %}

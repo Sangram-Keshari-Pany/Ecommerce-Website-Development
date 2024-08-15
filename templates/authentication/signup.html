@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+  LogIn
+{% endblock title %}
+
+{% block content %}
+<div class=" lo-box df-caj">
+    <div class=" lo-crd df-caj">
+        <h3 class=" log-ti">Sign Up</h3>
+        {% for message in messages %}
+        <div class=" alert-box alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class=" close-button" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        <form action="/authentication/signup/" method="POST" class=" lo-fo df-caj">
+            {% csrf_token %}
+            <div class=" fo-gu">
+                <label for="email" class=" form-label">Email</label>
+                <input type="email" class=" form-input" id="email" name="email" required placeholder="Enter Your Email  . . .">
+            </div>
+            <div class=" fo-gu">
+                <label for="pass1" class=" form-label">Password</label>
+                <input type="password" class=" form-input" id="pass1" name="pass1" required placeholder="Enter Your Password  . . .">
+            </div>
+            <div class=" fo-gu">
+                <label for="pass1" class=" form-label">Confirm Password</label>
+                <input type="password" class=" form-input" id="pass2" name="pass2" required required placeholder="Enter Your Confirm Password  . . .">
+            </div>
+            <button type="submit" class=" submit-button ">Sign In</button>
+            <div class=" form-footer">
+                New User? <a href="/authentication/login/" class=" blu-t">Log In</a><br>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

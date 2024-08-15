@@ -1,0 +1,26 @@
+{% extends "profile/myprofile.html" %}
+{% block title2 %}
+  wishlists
+{% endblock title2 %} 
+{% block profile %}
+<div style="overflow: auto;scrollbar-width: none;" class="user-profile">
+    {% for product in products %}
+    {% if product.product_id in wishlist %}
+    <form action="/view/{{product.product_id}}">
+        <div class="p-card">
+            <div class="wishlist"  style="text-align: end; margin-right: 20px; margin-top: 5px;"id={{product.product_id}}><i style="color: red; cursor: pointer;" class="fa-solid fa-heart fa-lg"></i></div>
+            <button type="submit" class="v-s-c-i">
+                <img style="width: 200px;height: 150px;" src="{{ product.image1.url }}" alt="Product Name" class="wh-b s-c-i df-caj-top">
+            </button>
+            <button class="v-s-c-b">
+                <h4><strong>{{product.average_rating}}</strong><i class="fa-solid fa-star"></i></h4>
+                <h5 class="">{{ product.name}}...</h5>
+                <h4><strong>{{product.discount}}</strong><i class="fa-solid fa-percent"></i></h4>
+                <h6 class="">Price: <strong>₹ {{ product.price }}</strong><strike>₹{{product.cost_price}}</strike></h6>
+            </button>
+        </div>
+    </form>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock profile %}

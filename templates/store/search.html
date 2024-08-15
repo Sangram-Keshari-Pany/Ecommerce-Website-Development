@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Cart
+{% endblock title %}
+
+{% block content %}
+    <div class="search-box">
+        <form action="/filter" method="POST" class="filter-product">
+            {% csrf_token %}
+            <h1>Categorys</h1>
+            <select name="category">
+                <option value="">Choose Category</option>
+                {% for subcategory in subcategorys %}
+                  <option value="{{subcategory.sub_category_name}}">{{subcategory.sub_category_name}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <h1>Price</h1>
+            <input type="number" value="0" name="minvalue" placeholder="MIN Value"><input type="number" value="0" name="maxvalue" placeholder="Max Value">
+            <br>
+            <h1>Brand</h1>
+            <select name="brand">
+                <option value="">Choose Brand</option>
+                {% for product in products %}
+                  <option value="{{product.brand}}">{{product.brand}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <h1>Ratings</h1>
+            <select name="rating">
+                <option value="0">Rating</option>
+                {% for product in products %}
+                  <option value="{{product.average_rating}}">{{product.average_rating}} *</option>
+                {% endfor %}
+            </select>
+            <h1>Discount</h1>
+            <select name="discount">
+                <option value="0">Discount</option>
+                {% for product in products %}
+                  <option value="{{product.discount}}">{{product.discount}} %</option>
+                {% endfor %}
+            </select>
+            <h1>Color</h1>
+            <select name="color">
+                <option value="">Color</option>
+                {% for product in products %}
+                  <option value="{{product.color}}">{{product.color}}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">FILTER</button>
+
+        </form>
+        <div class="search-product">
+            {% if productid %}
+            {% for product in products %}
+            {% if product.product_id in productid %}
+            <form action="/view/{{product.product_id}}" class="search-row df-aj">
+                <button type="submit" class="search-image df-aj">
+                    <img style="height: 190px; width:auto" src="{{product.image1.url}}" alt="">
+                </button>
+                <div class="search-name">
+                    <a href="/view/{{product.product_id}}" class="s-name-title">{{product.name}}</a>
+                    <br>
+                    <br>
+                    <div class="rating">{{product.average_rating}}<i class="fa-solid fa-star fa-2xs"></i></div>
+                    <div class="review">{{product.customer_reviews}}</div>
+                    <br>
+                    <div class="s-name-desc">{{product.Highlights}}</div>
+                </div>
+                <div class="search-price df-caj">
+                    <div class="wishlist" id='{{product.product_id}}'>
+                        {% if product.product_id in wishlist %}
+                        <i style="color: red;cursor: pointer;" class="fa-solid fa-heart fa-xl">
+                        {% else %}
+                        <i style="color: green;cursor: pointer;" class="fa-solid fa-heart fa-xl">
+                        {% endif %}</i>
+                    </div>
+                    <br>
+                    <div><p class="fa-solid fa-indian-rupee-sign"></p>{{product.price}}</div>
+                    <strike><p class="fa-solid fa-indian-rupee-sign"></p>{{product.cost_price}}</strike><p>{{product.discount}}%off</p>
+                    <br>
+                    <br>
+                    <b>Free Delivery</b>
+                </div>
+            </form>
+            {% endif %}
+            {% endfor %}
+            {%else%}
+            {% for product in products %}
+            <form action="/view/{{product.product_id}}" class="search-row df-aj">
+                <button type="submit" class="search-image df-aj">
+                    <img style="height: 190px; width:auto" src="{{product.image1.url}}" alt="">
+                </button>
+                <div class="search-name">
+                    <a href="/view/{{product.product_id}}" class="s-name-title">{{product.name}}</a>
+                    <br>
+                    <br>
+                    <div class="rating">{{product.average_rating}}<i class="fa-solid fa-star fa-2xs"></i></div>
+                    <div class="review">{{product.customer_reviews}}</div>
+                    <br>
+                    <div class="s-name-desc">{{product.Highlights}}</div>
+                </div>
+                <div class="search-price df-caj">
+                    <div class="wishlist" id='{{product.product_id}}'>
+                        {% if product.product_id in wishlist %}
+                        <i style="color: red;cursor: pointer;" class="fa-solid fa-heart fa-xl">
+                        {% else %}
+                        <i style="color: green;cursor: pointer;" class="fa-solid fa-heart fa-xl">
+                        {% endif %}
+                    </i></div>
+                    <br>
+                    <div><p class="fa-solid fa-indian-rupee-sign"></p>{{product.price}}</div>
+                    <strike><p class="fa-solid fa-indian-rupee-sign"></p>{{product.cost_price}}</strike><p>{{product.discount}}%off</p>
+                    <br>
+                    <br>
+                    <b>Free Delivery</b>
+                </div>
+            </form>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock content%}

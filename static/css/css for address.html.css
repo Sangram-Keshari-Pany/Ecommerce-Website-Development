@@ -1,0 +1,50 @@
+.add-b{
+    width: 100%;   
+}
+.add-c {
+    width: 100%;
+    /* background-color:white; */
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid white;
+}
+.add-t {
+    color: #000000;
+    font-size:30px;
+}
+.scroll_box{
+    height: 66vh;
+    width: 100%;
+    overflow: auto;
+    scrollbar-width:none;
+}
+.address_card{
+    height: 180px;
+    width: 100%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: small;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.address_card>div{
+    height: 12%;
+    width: 100%;
+}
+.name_span{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.name_span>button{
+    border: none;
+}
+.pincode_span{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pincode_span>button{
+    border: none;
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce {% block title %}{% endblock title %}</title>
+    <meta content="ecommerce websites we deliver products in 10 mins" name="description"/>
+    <meta content="ecommerce" name="amazon,flipkart,selling,products" />
+    <link href="{% static 'images/icon.svg'%}" rel="icon" />
+
+    <!--  -->    
+    <link rel="stylesheet" href="{% static 'css/css for search.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for view.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for address.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for order.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for profile.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for contact.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for login.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for checkout.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for cart.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for store.html.css'%}">
+    <link rel="stylesheet" href="{% static 'css/css for base.html.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+<script type="text/javascript">
+    let user = "{{request.user}}";
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === name + "=") {
+                    cookieValue = decodeURIComponent(
+                        cookie.substring(name.length + 1)
+                    );
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie("csrftoken");
+
+    function setCookie(name, value, options = {}) {
+        let cookieStr = `${name}=${encodeURIComponent(value)}`;
+        if (options.expires) {
+            const expires = new Date(options.expires).toUTCString();
+            cookieStr += `; expires=${expires}`;
+        }
+        if (options.path) {
+            cookieStr += `; path=${options.path}`;
+        }
+        document.cookie = cookieStr;
+    }
+
+    let cart;
+    try {
+        cart = JSON.parse(getCookie('cart')) || {};
+    } catch {
+        cart = {};  // Default to an empty object if JSON parsing fails
+    }
+    if (Object.keys(cart).length === 0) {
+        console.log('Cart is created');
+        setCookie('cart', JSON.stringify(cart), { path: '/' });
+    }
+
+    console.log('Cart:', cart);
+</script>
+
+
+</head>
+<body class="">
+    <article class=" b-a">
+        <nav class="b-n df-aj">
+            <div class=" b-n-l df-aj">
+                <a href=""><img src="{% static 'images/logo.png' %}" alt=""></a>
+            </div>
+            <form class="b-n-s-b df-aj" role="search" action="{% url 'search' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" placeholder="Search" aria-label="Search" id="search" name="search" class="drk-t" required>
+                <button class="base-search-icon" type="submit" aria-label="Submit search"><i class=" blu-t fas fa-search"></i></button>
+            </form>
+            <nav class=" b-n-n df-aj">
+                <ul class=" df-aj">
+                    <li class=" "><a class=" df-caj" href="/"><i class="drk-t fas fa-home"></i><span class="drk-t">Home</span></a></li>
+                    {% if user.is_authenticated %}
+                    <li class=" "><a class=" df-caj" href="{% url 'blog' %}"><i class="drk-t fa-solid fa-blog fa-bounce"></i><span class="drk-t">Blog</span></a></li>
+                    {% else %}
+                    <li class=" "><a class=" df-caj" href="{% url 'handlelogin' %}"><i class="drk-t fa-solid fa-blog fa-bounce"></i><span class="drk-t">Blog</span></a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class=" "><a class=" df-caj" href="{% url 'about' %}"><i class="drk-t fas fa-info-circle"></i><span class="drk-t">About</span></a></li>
+                    {% else %}
+                    <li class=" "><a class=" df-caj" href="{% url 'handlelogin' %}"><i class="drk-t fas fa-info-circle"></i><span class="drk-t">About</span></a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class=" "><a class=" df-caj" href="{% url 'checkout' %}"><i class="drk-t fa-solid fa-credit-card fa-flip"></i><span class="drk-t">CheckOut</span></a></li>
+                    {% else %}
+                    <li class=" "><a class=" df-caj" href="{% url 'handlelogin' %}"><i class="drk-t fa-solid fa-credit-card fa-flip"></i><span class="drk-t">CheckOut</span></a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class=" "><a class=" df-caj" href="{% url 'myprofile' %}"><i class="drk-t fas fa-user"></i><span class="drk-t">My Profile</span></a></li>
+                    {% else %}
+                    <li class=" "><a class=" df-caj" href="{% url 'handlelogin' %}"><i class="drk-t fas fa-user"></i><span class="drk-t">My Profile</span></a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class=" "><a class=" df-caj" href="{% url 'handlelogout' %}"><i class="drk-t fas fa-sign-out-alt"></i><span class="drk-t">Logout</span></a></li>
+                    {% else %}
+                    <li class="  base-dropdown">
+                        <a class=" df-caj base-dropbtn" href="#">
+                            <i class="drk-t fas fa-sign-in-alt"></i>
+                            <span class="drk-t">SignIn</span>
+                        </a>
+                        <div class=" base-dropdown-content">
+                            <a class=" " href="{% url 'handlelogin' %}">Login</a>
+                            <a class=" " href="{% url 'handlesignup' %}">Register</a>
+                        </div>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class=" "><a class=" df-caj" href="{% url 'contact' %}"><i class="drk-t fas fa-envelope"></i><span class="drk-t">Contact-Us</span></a></li>
+                    {% else %}
+                    <li class=" "><a class=" df-caj" href="{% url 'handlelogin' %}"><i class="drk-t fas fa-envelope"></i><span class="drk-t">Contact-Us</span></a></li>
+                    {% endif %}
+                    <li class=" "><a class=" df-caj" href="{% url 'cart' %}"><i class="drk-t fa-solid fa-cart-shopping fa-shake"></i><span class="drk-t">Cart(<span id="cart">{{cartitems}}</span>)</span></a></li>
+                </ul>
+            <nav>
+        </nav>
+    </article>
+    <section class=" b-s df-caj">
+        <article class=" component-render">
+            {% block content %}
+            {% endblock content %}
+        </article>
+        <footer class=" b-f df-caj blu-t">
+            <div class=" b-f-c df-aj">
+                <div class=" b-f-s">
+                    <div class=" base-logo">
+                        <a href=""><img style="width: 180px;" src="{% static 'images/logo.png' %}" alt=""></a>
+                    </div>
+                    <address>
+                        Saraberani Dhenkanal<br>
+                        Odish<br>
+                        India
+                    </address>
+                    <p>Phone: +91 7978359909</p>
+                    <p>Email: sangrampany546@gmail.com.com</p>
+                </div>
+                <div class=" b-f-s">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a class="drk-t" href="#">Home</a></li>
+                        <li><a class="drk-t" href="#">About us</a></li>
+                        <li><a class="drk-t" href="#">Services</a></li>
+                        <li><a class="drk-t" href="#">Terms of service</a></li>
+                        <li><a class="drk-t" href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class=" b-f-s">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a class="drk-t" href="#">Web Design</a></li>
+                        <li><a class="drk-t" href="#">Web Development</a></li>
+                        <li><a class="drk-t" href="#">Product Management</a></li>
+                        <li><a class="drk-t" href="#">Marketing</a></li>
+                        <li><a class="drk-t" href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+                <div class=" b-f-s">
+                    <h3>Stay Ahead in Full-Stack Development</h3>
+                    <p> Master new frameworks and languages.</p>
+                    <form action="#">
+                        <input type="email" placeholder="Enter your email">
+                        <button  class="wh-t" type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class=" b-f-b df-caj drk-t">
+                <p>&copy; Copyright <strong>sp@ny</strong>. All Rights sp@ny</p>
+                <p>Designed by<a class=" sangram" href="https://www.linkedin.com/in/sangram-keshari-pany-2584a6216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Sangram keshari pany</a></p>
+                <div class=" b-s-l df-aj">
+                    <a href="#"><i class="blu-t fab fa-twitter"></i></a>
+                    <a href="#"><i class="blu-t fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="blu-t fab fa-instagram"></i></a>
+                    <a href="#"><i class="blu-t fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+        </footer>
+
+    </section> 
+    {% comment %} jsjsjsjsjsjsjsjsjsjsjsjsjsj {% endcomment %}
+    <script src="{% static 'javaScript/js for wishlist.html.js'%}"></script>
+    <script src="{% static 'javaScript/js for add to cart.js'%}"></script>                   
+</body> 
+</html>

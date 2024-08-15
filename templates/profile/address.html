@@ -1,0 +1,32 @@
+{% extends "profile/myprofile.html" %}
+{% block title2 %}
+  Address
+{% endblock title2 %} 
+  <h1>address page </h1>
+{% block profile %}
+<div class="wh-b add-b df-caj">
+  <div class="wh-b add-c df-caj">
+    <h3 class="wh-b add-t">Your Address</h3>
+    <div class="scroll_box">
+      {% for address in shippingaddress  %}
+      <div class="address_card">
+        <div class="name_span">
+          <div>Name :-{{address.name}}</div>
+          <button class="wh-b"><i class="fa-solid fa-trash-can fa-lg"></i></i></button>
+        </div>
+        <div>Phno :-{{address.phone}}</div>
+        <div>Address :-{{address.address}}</div>
+        <div>Landmark :-{{address.landmark}}</div>
+        <div>City :-{{address.city}}</div>
+        <div>State :-{{address.state}}</div>
+        <div>Country :-{{address.country}}</div>
+        <div class="pincode_span">
+          <div>Pincode :-{{address.zipcode}}</div>
+          <button class="wh-b"><i class="fa-solid fa-pen-to-square fa-lg"></i></button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock profile %}

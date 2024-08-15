@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Home
+{% endblock title %}
+{% block content %}
+<section id="store-products" class="wh-b s-p df-caj">
+  <div class="s-c-box" >
+    {% for category in categorys %}
+    <form action="/searchcategory/{{category.id}}" class="df-caj">
+      <button>
+        <img style="height: 70px; width: 75px;" src="{{category.category_image.url}}" alt="">
+      </button>
+      <p>{{category.category_name|slice:"0:15"}}</p>
+    </form>
+    {% endfor %}
+  </div>
+  <div class="wh-b s-s-l df-caj">
+    <h2>Welcome To The </h2>
+    <img class="wh-b h2logo" src="{% static 'images/logo.png' %}" alt="">
+    <h3>Check our <span class="blu-t">Products</span></h3>
+  </div>
+
+  {% for category in categorys %}  
+  <div class="wh-b s-p-l df-caj">
+    <h3 class="wh-b my-3 text-center text-success bg-light">{{ category }} Category Flashsale</h3>
+    <div class="wh-b row df-aj">
+      {% for subcategory in subcategorys %}
+      {% if subcategory.category == category %}
+      <form action="/searchsubcategory/{{subcategory.id}}">
+        <div class="wh-b s-p-c">
+          <button type="submit" class="wh-b s-c-i df-caj">
+            <img style="width: 270px;height: 270px;" src="{{ subcategory.sub_category_image.url }}" alt="Product Name" class="wh-b s-c-i df-caj-top">
+          </button>
+          <button class="wh-b s-c-b ">
+            <h5 style="width: 180px;height: 40px; margin-top: 2px;" class="wh-b store-card-title">{{  subcategory.sub_category_name }}</h5>
+            <h6>Shop Now <i class="fa-solid fa-shop fa-xl" style="color: #e00000;"></i></h6>
+          </button>
+        </div>
+      </form> 
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock content %}
+<button class="df-aj img">
+</button>

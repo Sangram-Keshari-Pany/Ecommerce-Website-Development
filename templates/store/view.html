@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  view
+{% endblock title %}
+{% block content %}
+<div class="view-box df-aj">
+    <div class="view-box-continer dj-caj">
+        <div class="view_product">
+            <div class="image_section">
+                <div class="multipleimg">
+                    <form action="/view/{{product.product_id}}/1" class="df-aj"><button type="submit"><img class="image-option" style="height: 64px; width: 86px;" src="{{product.image1.url}}" alt=""></button></form>
+                    <form action="/view/{{product.product_id}}/2" class="df-aj"><button type="submit"><img class="image-option" style="height: 64px; width: 86px;" src="{{product.image2.url}}" alt=""></button></form>
+                    <form action="/view/{{product.product_id}}/3" class="df-aj"><button type="submit"><img class="image-option" style="height: 64px; width: 86px;" src="{{product.image3.url}}" alt=""></button></form>
+                    <form action="/view/{{product.product_id}}/4" class="df-aj"><button type="submit"><img class="image-option" style="height: 64px; width: 86px;" src="{{product.image4.url}}" alt=""></button></form>
+                    <form action="/view/{{product.product_id}}/5" class="df-aj"><button type="submit"><img class="image-option" style="height: 64px; width: 86px;" src="{{product.image5.url}}" alt=""></button></form>
+                </div>
+                <div class="mainimg">
+                    <div class="image_box df-aj">
+                        <img img class="main-image" style="height:100%; width: 100%;" src="{{image.url}}" alt="">
+                    </div>
+                    <div class="button_box">
+                        <button id="update-cart" class="drk-b wh-t addtocart" data-product="{{product.product_id}}" data-action="add">Add To Cart <i class="fa-solid fa-cart-shopping fa-bounce fa-lg"></i></button>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'checkout' %}"><button id="update-cart" class="drk-b wh-t addtocart" data-product="{{product.product_id}}" data-action="buy">Buy Now <i class="fa-solid fa-exclamation fa-beat-fade"></i></button></a>
+                        {% else %}
+                        <a href="{% url 'handlelogin' %}"><button id="update-cart" class="drk-b wh-t addtocart" data-product="{{product.product_id}}" data-action="buy">Buy Now <i class="fa-solid fa-exclamation fa-beat-fade"></i></button></a>
+                        {% endif %} 
+                    </div>
+                </div>
+            </div>
+            <div class="product_section">
+                <div class="p-title">{{product.name}}</div>
+                <div class="p-rating">{{product.average_rating}}<i class="fa-solid fa-star"></i></div>
+                <div class="p-review">{{product.customer_reviews}}</div>
+                <br>
+                <div class="p-price"><i class="fa-solid fa-indian-rupee-sign fa-xl">    {{product.price}}</i>   <strike>{{product.cost_price}}</strike><b>    {{product.discount}}<i class="fa-solid fa-percent"></i>   off</b></div>
+                <br>
+                <div class="p-size">Size :-{{product.size}}</div>
+                <br>
+                <div class="p-heighlits">
+                    <h1>Heighlits</h1>
+                    {{ product.Highlights }}
+                </div>
+                <br>
+                <div class="p-offer">
+                    <h1><i class="fa-solid fa-piggy-bank"></i>  Bank Offers</h1>
+                    <i class="fa-solid fa-tag fa-xl"></i>Bank Offer10% off up to ₹1,250 on ICICI Bank Credit Card Transactions, on orders of ₹5,000 and aboveT&C <br>
+                    <i class="fa-solid fa-tag fa-xl"></i>Bank Offer10% off up to ₹1,750 on ICICI Bank Credit Card EMI Transactions, on orders of ₹5,000 and aboveT&C <br>
+                    <i class="fa-solid fa-tag fa-xl"></i>Bank Offer10% off up to ₹1,000 on ICICI Bank Debit Card Transactions, on orders of ₹5,000 and aboveT&C <br>
+                    <i class="fa-solid fa-tag fa-xl"></i>Special PriceGet extra 52% off (price inclusive of cashback/coupon)T&C
+                </div>
+                <br>
+                <div class="p-warenty">
+                    <h1><i class="fas fa-shield-alt"></i>   Warranty</h1>
+                    <p>{{product.warranty_information}}</p>
+                </div>
+                <br>
+                <div class="p-description">
+                    <h1><i class="fa-solid fa-audio-description"></i>   Description</h1>
+                    <p>{{product.description}}</p> 
+                </div>
+            </div>
+        </div>
+        <h3>Similar Items</h3>
+        <div class="related_items">
+            {% for product in products %}
+            <form action="/view/{{product.product_id}}">
+                <div class="p-card">
+                    <div class="wishlist"  style="text-align: end; margin-right: 20px; margin-top: 5px;"id={{product.product_id}}>
+                        {% if product.product_id in wishlist %}
+                        <i style="color: red; cursor: pointer;" class="fa-solid fa-heart fa-lg"></i>
+                        {% else %}
+                        <i style="color: green;cursor: pointer;" class="fa-solid fa-heart fa-lg"></i>
+                        {% endif %}
+                    </div>
+                    <button type="submit" class="v-s-c-i">
+                        <img style="width: 200px;height: 150px;" src="{{ product.image1.url }}" alt="Product Name" class="wh-b s-c-i df-caj-top">
+                    </button>
+                    <button class="v-s-c-b">
+                        <h4><strong>{{product.average_rating}}</strong><i class="fa-solid fa-star"></i></h4>
+                        <h5 class="">{{ product.name}}...</h5>
+                        <h4><strong>{{product.discount}}</strong><i class="fa-solid fa-percent"></i></h4>
+                        <h6 class="">Price: <strong>₹ {{ product.price }}</strong><strike>₹{{product.cost_price}}</strike></h6>
+                    </button>
+                </div>
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+                        

@@ -1,0 +1,5 @@
+{% autoescape off %}
+  Hi {{user.username}}
+  Please Click This Link Below To Reset Your Password Kindly donot share with anyone
+  http://{{domain}}{% url 'set-new-password' uidb64=uid token=token %}
+{% endautoescape %}

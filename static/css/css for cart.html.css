@@ -1,0 +1,93 @@
+
+.c-m-a{
+    width: 100%;
+}
+.c-s-b{
+    margin-top: 50px;
+    width: 100%;
+    background-color:gold;
+}
+.cart-summary-table{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.c-s-tr{
+    height: 100%;
+    width: 98.8%;
+    background-color:gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    color: black;
+}
+.c-s-td {
+    padding: 10px;
+    font-size:20px;
+    font-weight:bolder;
+    width: 460px;
+    height: 100%;  
+} 
+.c-d-b{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+}
+.c-d-t{
+    width: 100%;
+}
+.c-d-tr1{
+    width: 100%;
+    background-color: green;
+    justify-content: space-evenly; 
+    color: white;
+}
+.c-d-tr{
+    width: 100%;
+    justify-content: space-evenly; 
+    border-top: 1px solid rgb(215, 213, 213);
+}
+.c-d-td {
+    padding: 10px;
+    font-size: medium;
+    width: 20%;
+    justify-content: space-evenly; 
+}
+.c-d-td>div{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    height: 40px;
+    margin-left: 5px;
+    width: 30px;
+    justify-content: center;
+    align-content: center;
+}
+.c-d-td>div>button{
+    height:50%;
+    width: 100%;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+}
+.c-d-td>div>button>i{
+    font-size: 30px;
+}
+.c-s-chk{
+    height: 40px;
+    width: 120px;
+    font-family: 'MyCustomFont', sans-serif;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: green;
+    border: 2px solid black;
+    color: white;
+}

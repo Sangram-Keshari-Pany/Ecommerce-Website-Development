@@ -1,0 +1,38 @@
+{% extends "profile/myprofile.html" %}
+{% block title2 %}
+  Contact Us
+{% endblock title2 %} 
+
+{% block profile %}
+<div class="wh-b con-b df-caj">
+  <div class="wh-b con-c df-caj">
+    <h3 class="wh-b con-ti drk-t">Contact Us</h3>
+    {% for message in messages %}
+    <div class="wh-b alert alert-{{ message.tags }} alert-box alert-dismissible fade show" role="alert">
+      <strong>{{ message }}</strong>
+      <button type="button" class="wh-b btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    <form action="/contact" method="POST" class="wh-b con-fo df-caj">
+      {% csrf_token %}
+      <div class="wh-b con-fo-gu">
+        <label for="name" class="wh-b form-label">Full Name</label>
+        <input type="text" class="wh-b form-input" id="name" name="name" required>
+      </div>
+      <div class="wh-b con-fo-gu">
+        <label for="email" class="wh-b form-label">Email</label>
+        <input type="email" class="wh-b form-input" id="email" name="email" required>
+      </div>
+      <div class="wh-b con-fo-gu">
+        <label for="desc" class="wh-b form-label">How Can I Help You</label>
+        <textarea class="wh-b form-input" id="desc" name="desc" required></textarea>
+      </div>
+      <div class="wh-b con-fo-gu">
+        <label for="pnumber" class="wh-b form-label">Phone Number</label>
+        <input type="number" class="wh-b form-input" id="pnumber" name="pnumber" required>
+      </div>
+      <button type="submit" class="con-su-bu drk-b wh-t">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock profile %}

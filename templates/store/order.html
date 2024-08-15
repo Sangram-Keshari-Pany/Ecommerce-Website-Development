@@ -1,0 +1,45 @@
+{% extends "profile/myprofile.html" %}
+{% block title2 %}
+  Order
+{% endblock title2 %} 
+  <h1>order page </h1>
+{% block profile %}
+<div class="wh-b order-box">
+  <div class="wh-b order-card">
+    <h3 class="wh-b order-title">Orders</h3>
+    <div class="items_scroll">
+      {% for item in orderItems  %}
+      {% if item.order.id in confirm_orders  %}
+      <div class="wh-b order-table df-aj">
+        <div class="wh-b order-image df-aj">
+          <a href="/view/{{item.product.product_id}}"><img style="height: 80px; width: 120px;" src="{{item.product.image1.url}}" alt=""></a>
+        </div>
+        <div class="wh-b order-name df-caj">
+          <div class="">{{item.product.name}}</div>
+          <div class="">{{item.product.description|slice:"0:130"}}. . .</div>
+          <div class="address">
+            <i class="fa-solid fa-user fa-beat"></i> {{item.order.shipping.name}} <br>
+            <i class="fa-solid fa-location-dot fa-beat-fade"></i> {{item.order.shipping.address}} {{item.order.shipping.landmark}} {{item.order.shipping.city}} {{item.order.shipping.state}} {{item.order.shipping.country}} {{item.order.shipping.zipcode}} <br>
+            <i class="fa-solid fa-phone-volume fa-shake"></i> +91 {{item.order.shipping.phone}}
+          </div>
+          <div class="df-aj">
+            <div class="orderid df-aj">Order id-{{item.order.transaction_id}}</div>
+            <div  class="view df-aj"><a class="" href="/view/{{item.product.product_id}}">View</a></div>
+          </div>
+        </div>
+        <div class="wh-b order-status df-caj">
+          <div class="df-caj"><span class="date">{{item.order.date_ordered }}</span><span><i class="fa-solid fa-box-open fa-beat-fade"></i></span></div>
+          <div class="df-aj"><i class="fa-regular fa-file-lines fa-bounce"></i></div>
+          <div class="df-aj">{{item.product.price}}</div>
+          <div class="buyagain df-aj">
+            <button button id="update-cart" class=" wh-t addtocart" data-product="{{item.product.product_id}}" data-action="add" >Buy Again</button>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock profile %}
+
